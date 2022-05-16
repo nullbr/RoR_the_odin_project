@@ -1,0 +1,12 @@
+[submodule "event_manager"]
+	path = event_manager
+	url = git@github.com:nullbr/event_manager.git
+[submodule "hangman"]
+	path = hangman
+	url = git@github.com:nullbr/hangman.git
+[submodule "mastermind"]
+	path = mastermind
+	url = git@github.com:nullbr/mastermind.git
+[submodule "tic-tac-toe"]
+	path = tic-tac-toe
+	url = git@github.com:nullbr/tic-tac-toe.git
