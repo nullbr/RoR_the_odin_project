@@ -10,3 +10,6 @@
 [submodule "tic-tac-toe"]
 	path = tic-tac-toe
 	url = git@github.com:nullbr/tic-tac-toe.git
+[submodule "merge_sort"]
+	path = merge_sort
+	url = git@github.com:nullbr/merge_sort.git
