@@ -13,3 +13,6 @@
 [submodule "merge_sort"]
 	path = merge_sort
 	url = git@github.com:nullbr/merge_sort.git
+[submodule "linked_lists"]
+	path = linked_lists
+	url = git@github.com:nullbr/linked_lists.git
