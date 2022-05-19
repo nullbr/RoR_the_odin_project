@@ -16,3 +16,6 @@
 [submodule "linked_lists"]
 	path = linked_lists
 	url = git@github.com:nullbr/linked_lists.git
+[submodule "binary_search_tree"]
+	path = binary_search_tree
+	url = git@github.com:nullbr/binary_search_tree.git
