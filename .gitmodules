@@ -19,3 +19,6 @@
 [submodule "binary_search_tree"]
 	path = binary_search_tree
 	url = git@github.com:nullbr/binary_search_tree.git
+[submodule "knights-travails"]
+	path = knights-travails
+	url = git@github.com:nullbr/knights-travails.git
