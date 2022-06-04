@@ -22,3 +22,6 @@
 [submodule "knights-travails"]
 	path = knights-travails
 	url = git@github.com:nullbr/knights-travails.git
+[submodule "git_playgroun"]
+        path = git_playgroun
+        url = git@github.com:nullbr/git_playground.git
