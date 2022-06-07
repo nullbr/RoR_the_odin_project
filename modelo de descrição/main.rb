@@ -34,10 +34,13 @@ if type == 'Apartamento'
 
   puts "\nNome de condominio (ex. 'Edifício Residencial Vergueiro')"
   condo = gets.chomp
+  puts "\n----------------\nDescrição comercial:"
+  model.comercial_description(street, neighbourhood, number, apt_info, condo)
+else
+  puts "\n----------------\nDescrição comercial:"
+  model.comercial_description(street, neighbourhood, number)
 end
 
-puts "\n----------------\nDescrição comercial:"
-model.comercial_description(street, neighbourhood, number, apt_info = '', condo = '')
 
 # Nearby places description
 puts "\nInserir Descrição das proximidades da propriedade. Exemplo:"
