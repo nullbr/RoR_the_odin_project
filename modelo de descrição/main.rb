@@ -1,6 +1,8 @@
 require_relative 'lib/build_file'
 
-TYPES_OF_PROPERTIES = %w[Imóvel Apartamento Terreno]
+TYPES_OF_PROPERTIES = %w[Imóvel Apartamento Terreno].freeze
+CONDO_FEATURES = ['Portaria 24 horas', 'Sauna', 'Salão de Festas', 'Churrasqueira', 'Academia', 
+  'Piscina', 'Quadra Poliesportiva', 'Brinquedoteca', 'Bicicletário', 'Playground'].freeze
 
 model = BuildModel.new(1234)
 
@@ -66,6 +68,23 @@ if type_num != 2
     feature = gets.chomp
     features << feature
   end
+  features.delete('end')
+  unless features.empty?
+    model.residence_features(features)
+  end
+end
 
-  model.residence_features(features)
+# Condominium features for apartments
+if type_num == 1
+  puts "\nInformações do condominio. Opções:"
+  CONDO_FEATURES.each_with_index do |feat, idx|
+    puts "#{idx}- #{feat}"
+  end
+
+  condo_feat = []
+  chosen = gets.chomp.split
+  unless chosen.empty?
+    chosen.each { |num| condo_feat << CONDO_FEATURES[num.to_i] }
+    model.condo_features(condo_feat)
+  end
 end

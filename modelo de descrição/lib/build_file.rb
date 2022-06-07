@@ -48,4 +48,13 @@ class BuildModel
       end
     end
   end
+
+  def condo_features(features)
+    File.open(@filename, 'a') do |f|
+      f.puts "\nO condomínio conta com os seguintes recursos:"
+      features.each do |feat|
+        f.puts "  - #{feat}"
+      end
+    end
+  end
 end
