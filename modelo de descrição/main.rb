@@ -1,11 +1,11 @@
 require_relative 'lib/build_file'
 
-TYPES_OF_PROPERTIES = ['Imóvel', 'Apartamento', 'Terreno']
+TYPES_OF_PROPERTIES = %w[Imóvel Apartamento Terreno]
 
 model = BuildModel.new(1234)
 
 # Criating a title
-puts "Qual tipo de popriedade?"
+puts 'Qual tipo de popriedade?'
 TYPES_OF_PROPERTIES.each_with_index { |type, idx| puts "#{idx}: #{type}" }
 type = TYPES_OF_PROPERTIES[gets.chomp.to_i]
 
@@ -29,11 +29,11 @@ puts "\nQual o bairro?"
 neighbourhood = gets.chomp
 
 if type == 'Apartamento'
-    puts "\nInformações sobre o apartamento, caso aplicavel (ex. 'unidade 167, do tipo II, localizado no 16º andar')"
-    apt_info = gets.chomp
+  puts "\nInformações sobre o apartamento, caso aplicavel (ex. 'unidade 167, do tipo II, localizado no 16º andar')"
+  apt_info = gets.chomp
 
-    puts "\nNome de condominio (ex. 'Edifício Residencial Vergueiro')"
-    condo = gets.chomp
+  puts "\nNome de condominio (ex. 'Edifício Residencial Vergueiro')"
+  condo = gets.chomp
 end
 
 puts "\n----------------\nDescrição comercial:"

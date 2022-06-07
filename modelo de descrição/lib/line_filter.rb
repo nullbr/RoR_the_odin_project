@@ -9,7 +9,7 @@ end
 def save(to_file = 'filtered-file.txt')
   File.open(to_file, 'w') do |file|
     @lines.each do |line|
-      file.print line.concat(" ")
+      file.print line.concat(' ')
     end
   end
 end
