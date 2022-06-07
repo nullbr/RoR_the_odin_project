@@ -35,8 +35,17 @@ class BuildModel
 
   def nearby_description(description)
     File.open(@filename, 'a') do |f|
-      f.puts "\n----------------\nDescrição comercial:\n"
+      f.puts "\n"
       f.puts description
+    end
+  end
+
+  def residence_features(features)
+    File.open(@filename, 'a') do |f|
+      f.puts "\nO #{@prop_type} possui:"
+      features.each do |feat|
+        f.puts "  - #{feat}"
+      end
     end
   end
 end

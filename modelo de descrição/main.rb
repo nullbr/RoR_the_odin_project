@@ -7,7 +7,8 @@ model = BuildModel.new(1234)
 # Criating a title
 puts 'Qual tipo de popriedade?'
 TYPES_OF_PROPERTIES.each_with_index { |type, idx| puts "#{idx}: #{type}" }
-type = TYPES_OF_PROPERTIES[gets.chomp.to_i]
+type_num = gets.chomp.to_i
+type = TYPES_OF_PROPERTIES[type_num]
 
 puts "\nQual a area util (somente numeros)"
 area = gets.chomp.to_i
@@ -28,7 +29,7 @@ number = gets.chomp
 puts "\nQual o bairro?"
 neighbourhood = gets.chomp
 
-if type == 'Apartamento'
+if type_num == 1
   puts "\nInformações sobre o apartamento, caso aplicavel (ex. 'unidade 167, do tipo II, localizado no 16º andar')"
   apt_info = gets.chomp
 
@@ -41,7 +42,6 @@ else
   model.comercial_description(street, neighbourhood, number)
 end
 
-
 # Nearby places description
 puts "\nInserir Descrição das proximidades da propriedade. Exemplo:"
 puts File.read('templates/proximidades.txt')
@@ -49,3 +49,23 @@ puts "\n"
 nearby_places = gets.chomp
 
 model.nearby_description(nearby_places)
+
+# Details of the residence
+if type_num != 2
+  puts "\nInsira todos os detalhes das acomodações ('end' para finalizar). Exemplos:"
+  puts "Sala de estar [Com duplo ambiente e varanda]
+  Cozinha
+  1 Sanitário Social
+  2 Dormitórios
+  Área de Serviço
+  1 Vaga de Garagem Coberta e Indeterminada\n"
+
+  feature = ''
+  features = []
+  while feature != 'end'
+    feature = gets.chomp
+    features << feature
+  end
+
+  model.residence_features(features)
+end
