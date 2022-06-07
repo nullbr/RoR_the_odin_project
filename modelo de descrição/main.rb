@@ -88,3 +88,14 @@ if type_num == 1
     model.condo_features(condo_feat)
   end
 end
+
+# Registration information
+puts "\nInsira as informações da matricula (ex. Matrícula nº 1.525 do CRI da Comarca de Tremembé/SP.)"
+registration = gets.chomp
+model.matricula(registration)
+
+# Description form matricula
+puts "\nInsira a descrição da matricula no arquivo, e depois de salvar pressione enter."
+system 'gedit temp.txt'
+gets.chomp
+model.description_in_matricula

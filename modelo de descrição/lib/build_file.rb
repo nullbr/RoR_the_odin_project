@@ -1,4 +1,5 @@
 require 'erb'
+require_relative 'line_filter'
 
 class BuildModel
   def initialize(matricula)
@@ -56,5 +57,17 @@ class BuildModel
         f.puts "  - #{feat}"
       end
     end
+  end
+
+  def matricula(description)
+    File.open(@filename, 'a') do |f|
+      f.puts "\n"
+      f.puts description
+    end
+  end
+
+  def description_in_matricula
+    load
+    save(@filename)
   end
 end
