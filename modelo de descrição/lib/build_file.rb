@@ -1,22 +1,18 @@
 require 'erb'
-require_relative 'line_filter'
 
 class BuildModel
   def initialize(matricula)
     time = Time.now.strftime('%d%m%Y')
     @filename = "saved/#{matricula}-#{time}.docx"
     File.new(@filename, 'w+')
+    File.new('temp.txt', 'w+')
   end
 
   def titulo(type, area, city_state)
     @prop_type = type
     @area = area
     @city_state = city_state
-    puts title = "#{type} de #{area}m², em #{city_state}"
-    File.open(@filename, 'a') do |f|
-      f.puts "Titulo:\n"
-      f.puts title
-    end
+    @title = "#{type} de #{area}m², em #{city_state}"
   end
 
   def comercial_description(street, neighbourhood, number, apt_info = '', condo = '')
@@ -27,47 +23,64 @@ class BuildModel
     @condo = condo
 
     commercial_template = ERB.new File.read('templates/commercial_description.erb')
-    puts result = commercial_template.result(binding)
-    File.open(@filename, 'a') do |f|
-      f.puts "\n----------------\nDescrição comercial:\n"
-      f.puts result
-    end
+    @commercial_result = commercial_template.result(binding)
   end
 
   def nearby_description(description)
-    File.open(@filename, 'a') do |f|
-      f.puts "\n"
-      f.puts description
-    end
+    @nearby_description = description
   end
 
   def residence_features(features)
-    File.open(@filename, 'a') do |f|
-      f.puts "\nO #{@prop_type} possui:"
-      features.each do |feat|
-        f.puts "  - #{feat}"
-      end
-    end
+    @residence_features = features
   end
 
   def condo_features(features)
-    File.open(@filename, 'a') do |f|
-      f.puts "\nO condomínio conta com os seguintes recursos:"
-      features.each do |feat|
-        f.puts "  - #{feat}"
-      end
-    end
+    @condo_features = features
   end
 
   def matricula(description)
-    File.open(@filename, 'a') do |f|
-      f.puts "\n"
-      f.puts description
-    end
+    @matricula = description
   end
+
+  def build_file
+    File.open(@filename, 'a') do |f|
+      f.puts "Titulo:\n#{@title}"
+      f.puts "\n----------------\nDescrição comercial:\n#{@commercial_result}"
+      f.puts "\n#{@nearby_description}\n\nO #{@prop_type} possui:"
+      @residence_features.each { |feat| f.puts "  - #{feat}" }
+      f.puts "\nO condomínio conta com os seguintes recursos:"
+      @condo_features.each { |feat| f.puts "  - #{feat}" }
+      f.puts "\n#{@matricula}\n"
+    end
+    description_in_matricula
+    final_part
+  end
+
+  private
 
   def description_in_matricula
     load
-    save(@filename)
+    save
+    File.delete('temp.txt')
+  end
+
+  def final_part
+    File.open(@filename, 'a') { |f| f.puts File.read('templates/final_part.txt') }
+  end
+
+  def load(source = 'temp.txt')
+    @lines = []
+    File.readlines(source).each do |line|
+      @lines << line.chomp
+    end
+    @lines
+  end
+
+  def save
+    File.open(@filename, 'a') do |file|
+      @lines.each do |line|
+        file.print line.concat(' ')
+      end
+    end
   end
 end

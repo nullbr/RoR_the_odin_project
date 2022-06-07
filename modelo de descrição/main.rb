@@ -2,7 +2,7 @@ require_relative 'lib/build_file'
 
 TYPES_OF_PROPERTIES = %w[Imóvel Apartamento Terreno].freeze
 CONDO_FEATURES = ['Portaria 24 horas', 'Sauna', 'Salão de Festas', 'Churrasqueira', 'Academia', 
-  'Piscina', 'Quadra Poliesportiva', 'Brinquedoteca', 'Bicicletário', 'Playground'].freeze
+                  'Piscina', 'Quadra Poliesportiva', 'Brinquedoteca', 'Bicicletário', 'Playground'].freeze
 
 model = BuildModel.new(1234)
 
@@ -18,7 +18,6 @@ area = gets.chomp.to_i
 puts "\nQual a localização? ex. São Paulo/SP"
 location = gets.chomp
 
-puts "\n----------------\nTitulo:"
 model.titulo(type, area, location)
 
 # Criating a commertial description
@@ -37,10 +36,8 @@ if type_num == 1
 
   puts "\nNome de condominio (ex. 'Edifício Residencial Vergueiro')"
   condo = gets.chomp
-  puts "\n----------------\nDescrição comercial:"
   model.comercial_description(street, neighbourhood, number, apt_info, condo)
 else
-  puts "\n----------------\nDescrição comercial:"
   model.comercial_description(street, neighbourhood, number)
 end
 
@@ -69,9 +66,7 @@ if type_num != 2
     features << feature
   end
   features.delete('end')
-  unless features.empty?
-    model.residence_features(features)
-  end
+  model.residence_features(features) unless features.empty?
 end
 
 # Condominium features for apartments
@@ -98,4 +93,5 @@ model.matricula(registration)
 puts "\nInsira a descrição da matricula no arquivo, e depois de salvar pressione enter."
 system 'gedit temp.txt'
 gets.chomp
-model.description_in_matricula
+
+model.build_file
