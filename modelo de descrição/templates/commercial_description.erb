@@ -1,1 +1,1 @@
-<%= @prop_type %> situado na Rua <%= @street %> no bairro <%= @neighbourhood %>, <%= @city_state %>. <%= @apt_info %> do Condomínio <%= @condo %>, com <%= @area %>m² de área útil."
+<%= @prop_type %> situado na Rua <%= @street %> no bairro <%= @neighbourhood %>, <%= @city_state %>. <% if @prop_type == 'Apartamento' %><%= @apt_info %> do Condomínio <%= @condo %>, com <% else %>Com <% end %><%= @area %>m² de área útil.

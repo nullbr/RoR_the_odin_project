@@ -2,7 +2,7 @@ require_relative 'lib/build_file'
 
 TYPES_OF_PROPERTIES = ['Imóvel', 'Apartamento', 'Terreno']
 
-model = BuildModel.new
+model = BuildModel.new(1234)
 
 # Criating a title
 puts "Qual tipo de popriedade?"
@@ -15,6 +15,7 @@ area = gets.chomp.to_i
 puts "\nQual a localização? ex. São Paulo/SP"
 location = gets.chomp
 
+puts "\n----------------\nTitulo:"
 model.titulo(type, area, location)
 
 # Criating a commertial description
@@ -35,4 +36,13 @@ if type == 'Apartamento'
     condo = gets.chomp
 end
 
+puts "\n----------------\nDescrição comercial:"
 model.comercial_description(street, neighbourhood, number, apt_info = '', condo = '')
+
+# Nearby places description
+puts "\nInserir Descrição das proximidades da propriedade. Exemplo:"
+puts File.read('templates/proximidades.txt')
+puts "\n"
+nearby_places = gets.chomp
+
+model.nearby_description(nearby_places)
