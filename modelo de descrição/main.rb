@@ -4,7 +4,10 @@ TYPES_OF_PROPERTIES = %w[Imóvel Apartamento Terreno].freeze
 CONDO_FEATURES = ['Portaria 24 horas', 'Sauna', 'Salão de Festas', 'Churrasqueira', 'Academia', 
                   'Piscina', 'Quadra Poliesportiva', 'Brinquedoteca', 'Bicicletário', 'Playground'].freeze
 
-model = BuildModel.new(1234)
+
+puts "Qual o número da matricula"                  
+matricula_num = gets.chomp
+model = BuildModel.new(matricula_num)
 
 # Criating a title
 puts 'Qual tipo de popriedade?'
@@ -85,13 +88,26 @@ if type_num == 1
 end
 
 # Registration information
-puts "\nInsira as informações da matricula (ex. Matrícula nº 1.525 do CRI da Comarca de Tremembé/SP.)"
+puts "\nInsira as a comarca da matricula (ex. CRI da Comarca de Tremembé/SP.)"
 registration = gets.chomp
 model.matricula(registration)
 
 # Description form matricula
-puts "\nInsira a descrição da matricula no arquivo, e depois de salvar pressione enter."
-system 'gedit temp.txt'
+# puts "Usar temp file (1) ou inserir o nome do arquivo (2)?"
+# option = gets.chomp.to_i
+
+# if option == 1
+#   puts "\nInsira a descrição da matricula no arquivo, e depois de salvar pressione enter."
+#   system 'gedit temp.txt'
+#   gets.chomp
+# else
+#   puts "\nInsira a descrição da matricula no arquivo, e depois insira o nome do arquivo."
+#   filename = gets.chomp
+# end
+
+puts "\nInsira a descrição da matricula no arquivo temp.txt, e depois de salvar pressione enter."
 gets.chomp
 
 model.build_file
+
+puts "Arquivo salvo na pasta Saved, com o numero da matricula."

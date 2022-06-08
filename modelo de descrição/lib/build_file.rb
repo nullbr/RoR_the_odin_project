@@ -3,6 +3,7 @@ require 'erb'
 class BuildModel
   def initialize(matricula)
     time = Time.now.strftime('%d%m%Y')
+    @matricula_num = matricula
     @filename = "saved/#{matricula}-#{time}.docx"
     File.new(@filename, 'w+')
     File.new('temp.txt', 'w+')
@@ -39,7 +40,8 @@ class BuildModel
   end
 
   def matricula(description)
-    @matricula = description
+    num = @matricula_num.size > 3 ? @matricula_num.insert(-4, '.') : @matricula_num
+    @matricula = "Matrícula nº #{num} do #{description}"
   end
 
   def build_file
@@ -49,8 +51,8 @@ class BuildModel
       f.puts "\n#{@nearby_description}\n\nO #{@prop_type} possui:"
       @residence_features.each { |feat| f.puts "  - #{feat}" }
       f.puts "\nO condomínio conta com os seguintes recursos:"
-      @condo_features.each { |feat| f.puts "  - #{feat}" }
-      f.puts "\n#{@matricula}\n"
+      @condo_features.each { |feat| f.puts "  - #{feat}" } if @condo_features
+      f.puts "\n#{@matricula}\n\n"
     end
     description_in_matricula
     final_part
@@ -68,9 +70,9 @@ class BuildModel
     File.open(@filename, 'a') { |f| f.puts File.read('templates/final_part.txt') }
   end
 
-  def load(source = 'temp.txt')
+  def load
     @lines = []
-    File.readlines(source).each do |line|
+    File.readlines('temp.txt').each do |line|
       @lines << line.chomp
     end
     @lines
@@ -81,6 +83,7 @@ class BuildModel
       @lines.each do |line|
         file.print line.concat(' ')
       end
+      file.puts "\n"
     end
   end
 end
