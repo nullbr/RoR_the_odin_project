@@ -14,4 +14,8 @@ class Calculator
   def divide(a, b, c = 1)
     a / b / c unless b.zero? || c.zero?
   end
+
+  def divisible?
+    
+  end
 end

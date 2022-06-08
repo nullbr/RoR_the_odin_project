@@ -59,4 +59,10 @@ describe Calculator do
       expect(calculator.divide(10, 1, 0)).to eql(nil)
     end
   end
+
+  describe '#divisible?' do
+    it 'returns true if numbers are divisible' do
+      expect(subject.divisible?(4, 0)).to be_divisible
+    end
+  end
 end
