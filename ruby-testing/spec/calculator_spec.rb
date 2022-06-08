@@ -5,8 +5,7 @@ require './lib/calculator'
 describe Calculator do
   describe '#add' do
     it 'returns the sum of two numbers' do
-      calculator = Calculator.new
-      expect(calculator.add(5, 2)).to eql(7)
+      expect(subject.add(5, 2)).to eql(7) # using subject istead of declaring a variable
     end
 
     it 'returns the sum of more than two numbers' do
