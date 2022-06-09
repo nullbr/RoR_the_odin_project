@@ -61,12 +61,14 @@ describe Calculator do
   end
 
   describe '#divisible?' do
-    it 'returns true if numbers are divisible' do
-      expect(subject.divisible?(4, 2)).to be_truthy
-    end
-
-    it 'returns false if division by zero' do
-      expect(subject.divisible?(4, 0)).to_not be true
+    context "When two numbers is divided" do
+      it 'returns true if numbers are divisible' do
+        expect(subject.divisible?(4, 2)).to be_truthy
+      end
+  
+      it 'returns false if division by zero' do
+        expect(subject.divisible?(4, 0)).to_not be true
+      end
     end
   end
 end
