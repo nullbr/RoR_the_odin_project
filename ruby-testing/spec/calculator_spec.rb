@@ -2,7 +2,7 @@ require './lib/calculator'
 
 # spec/calculator_spec.rb
 
-describe Calculator do
+RSpec.describe Calculator do
   describe '#add' do
     it 'returns the sum of two numbers' do
       expect(subject.add(5, 2)).to eql(7) # using subject istead of declaring a variable
