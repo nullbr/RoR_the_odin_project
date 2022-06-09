@@ -31,3 +31,6 @@
 [submodule "caesars_cipher"]
 	path = caesars_cipher
 	url = git@github.com:nullbr/caesars_cipher.git
+[submodule "connect_four"]
+	path = connect_four
+	url = git@github.com:nullbr/connect_four.git
