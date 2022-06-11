@@ -23,11 +23,11 @@
 	path = knights-travails
 	url = git@github.com:nullbr/knights-travails.git
 [submodule "git_playground"]
-        path = git_playground
-        url = git@github.com:nullbr/git_playground.git
+	path = git_playground
+	url = git@github.com:nullbr/git_playground.git
 [submodule "contribute-theodinproject"]
-        path = contribute-theodinproject
-        url = git@github.com:nullbr/contribute-theodinproject.git
+	path = contribute-theodinproject
+	url = git@github.com:nullbr/contribute-theodinproject.git
 [submodule "caesars_cipher"]
 	path = caesars_cipher
 	url = git@github.com:nullbr/caesars_cipher.git
