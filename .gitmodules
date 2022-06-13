@@ -34,3 +34,6 @@
 [submodule "connect_four"]
 	path = connect_four
 	url = git@github.com:nullbr/connect_four.git
+[submodule "modelo-de-descricao"]
+	path = modelo-de-descricao
+	url = git@github.com:nullbr/modelo-de-descricao.git
