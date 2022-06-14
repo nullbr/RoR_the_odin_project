@@ -37,3 +37,6 @@
 [submodule "modelo-de-descricao"]
 	path = modelo-de-descricao
 	url = git@github.com:nullbr/modelo-de-descricao.git
+[submodule "chess-final-project"]
+	path = chess-final-project
+	url = git@github.com:nullbr/chess_game.git
