@@ -42,7 +42,7 @@ prices = File.open('prices.txt', 'w')
 
 CSV.foreach('prices.csv') do |row|
   increment = if row[5].scan(/\d/).join[0..-3].to_i < 7500
-                "R$ 100, 00"
+                "R$ 100,00"
               elsif row[5].scan(/\d/).join[0..-3].to_i < 20000
                 "R$ 500,00"
               else
