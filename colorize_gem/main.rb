@@ -1,6 +1,6 @@
 require 'colorize'
 
-=begin
+
 String.colors                       # return array of all possible colors names
 String.modes                        # return array of all possible modes
 String.color_samples                # displays color samples in all combinations
@@ -9,7 +9,7 @@ String.disable_colorization = false # enable colorization
 String.disable_colorization false   # enable colorization
 String.disable_colorization = true  # disable colorization
 String.disable_colorization true    # disable colorization
-=end
+
 puts "This is blue".colorize(:blue)
 puts "This is light blue".colorize(:light_blue)
 puts "This is also blue".colorize(:color => :blue)
