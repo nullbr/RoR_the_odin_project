@@ -1,42 +1,42 @@
 [submodule "event_manager"]
-	path = event_manager
+	path = RubyProgramming/event_manager
 	url = git@github.com:nullbr/event_manager.git
 [submodule "hangman"]
-	path = hangman
+	path = RubyProgramming/hangman
 	url = git@github.com:nullbr/hangman.git
 [submodule "mastermind"]
-	path = mastermind
+	path = RubyProgramming/mastermind
 	url = git@github.com:nullbr/mastermind.git
 [submodule "tic-tac-toe"]
-	path = tic-tac-toe
+	path = RubyProgramming/tic-tac-toe
 	url = git@github.com:nullbr/tic-tac-toe.git
 [submodule "merge_sort"]
-	path = merge_sort
+	path = RubyProgramming/merge_sort
 	url = git@github.com:nullbr/merge_sort.git
 [submodule "linked_lists"]
-	path = linked_lists
+	path = RubyProgramming/linked_lists
 	url = git@github.com:nullbr/linked_lists.git
 [submodule "binary_search_tree"]
-	path = binary_search_tree
+	path = RubyProgramming/binary_search_tree
 	url = git@github.com:nullbr/binary_search_tree.git
 [submodule "knights-travails"]
-	path = knights-travails
+	path = RubyProgramming/knights-travails
 	url = git@github.com:nullbr/knights-travails.git
 [submodule "git_playground"]
-	path = git_playground
+	path = RubyProgramming/git_playground
 	url = git@github.com:nullbr/git_playground.git
 [submodule "contribute-theodinproject"]
-	path = contribute-theodinproject
+	path = RubyProgramming/contribute-theodinproject
 	url = git@github.com:nullbr/contribute-theodinproject.git
 [submodule "caesars_cipher"]
-	path = caesars_cipher
+	path = RubyProgramming/caesars_cipher
 	url = git@github.com:nullbr/caesars_cipher.git
 [submodule "connect_four"]
-	path = connect_four
+	path = RubyProgramming/connect_four
 	url = git@github.com:nullbr/connect_four.git
 [submodule "modelo-de-descricao"]
-	path = modelo-de-descricao
+	path = RubyProgramming/modelo-de-descricao
 	url = git@github.com:nullbr/modelo-de-descricao.git
 [submodule "chess-final-project"]
-	path = chess-final-project
+	path = RubyProgramming/chess-final-project
 	url = git@github.com:nullbr/chess_game.git
